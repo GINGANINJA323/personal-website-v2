@@ -1,10 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { NavigationContext } from '../context/nav-context';
-import { navOptions } from '../constants';
+import { colours, navOptions } from '../constants';
+import StyleContext from '../context/style-context';
 
 interface NavButtonProps {
     selected?: boolean;
+    backgroundColour: string;
+    textColour: string;
 }
 
 const breakpoints = {
@@ -31,18 +34,25 @@ const NavbarContainer = styled.div`
 
 const NavButton = styled.button<NavButtonProps>`
     border: none;
-    background-color: #FFF;
+    background-color: ${props => props.backgroundColour};
+    color: ${props => props.textColour};
     ${props => props.selected ? 'text-decoration: underline;' : ''}
     font-size: 20px;
 `;
 
 const Navbar = () => {
     const { selected, setSelected } = React.useContext(NavigationContext);
+    const { theme } = React.useContext(StyleContext);
+    const { backgroundColour, textColour } = colours[theme];
 
     return (
         <NavbarContainer>
             {
-                navOptions.map(o => <NavButton selected={o.value === selected} onClick={() => setSelected(o.value)}>{o.label}</NavButton>)
+                navOptions.map(o => <NavButton
+                    backgroundColour={backgroundColour}
+                    textColour={textColour} selected={o.value === selected}
+                    onClick={() => setSelected(o.value)}>{o.label}
+                </NavButton>)
             }
         </NavbarContainer>
     );
