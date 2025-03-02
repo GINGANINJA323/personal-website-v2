@@ -8,6 +8,5 @@ interface NavigationContextObj {
 
 export const NavigationContext = createContext<NavigationContextObj>({
     selected: Page.Home,
-    // @ts-ignore
     setSelected: () => undefined
 });
