@@ -7,11 +7,26 @@ interface NavButtonProps {
     selected?: boolean;
 }
 
+const breakpoints = {
+    xs: '40',
+    s: '20',
+    m: '15',
+    l: '12'
+}
+
+const getWidth = (width: number): string => {
+    if (width <= 500) return breakpoints.xs;
+    if (width <= 700) return breakpoints.s
+    if (width <= 900) return breakpoints.m;
+
+    return breakpoints.l;
+}
+
 const NavbarContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 10%;
+    width: ${getWidth(window.innerWidth)}%;
 `;
 
 const NavButton = styled.button<NavButtonProps>`
