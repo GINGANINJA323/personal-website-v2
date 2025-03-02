@@ -7,10 +7,10 @@ import Content from './components/content';
 import StyleContext from './context/style-context';
 import { colours } from './constants';
 
-const ContentContainer = styled.div<{ backgroundColour: string, textColour: string }>`
+const ContentContainer = styled.div<{ backgroundColour: string, textColour: string, selectedPage: Page }>`
     background-color: ${props => props.backgroundColour};
     color: ${props => props.textColour};
-    height: 100vh;
+    height: ${props => props.selectedPage === Page.Projects && window.innerHeight < 600 ? 'fit-content' : '100vh'};
 `;
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
     return (
         <NavigationContext.Provider value={{ selected: selectedPage, setSelected: setSelectedPage }}>
             <StyleContext.Provider value={{ theme, setTheme }}>
-                <ContentContainer backgroundColour={backgroundColour} textColour={textColour}>
+                <ContentContainer selectedPage={selectedPage} backgroundColour={backgroundColour} textColour={textColour}>
                     <Header />
                     <Content page={selectedPage} />
                 </ContentContainer>
