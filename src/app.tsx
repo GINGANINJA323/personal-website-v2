@@ -10,7 +10,7 @@ import { colours } from './constants';
 const ContentContainer = styled.div<{ backgroundColour: string, textColour: string, selectedPage: Page }>`
     background-color: ${props => props.backgroundColour};
     color: ${props => props.textColour};
-    height: ${props => props.selectedPage === Page.Projects && window.innerHeight < 600 ? 'fit-content' : '100vh'};
+    height: ${props => props.selectedPage === Page.Projects && window.innerHeight < 900 ? 'fit-content' : '100vh'};
 `;
 
 const App = () => {
