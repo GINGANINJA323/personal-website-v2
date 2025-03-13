@@ -9,6 +9,10 @@ const ThemeButton = styled.button<{ backgroundColour: string, textColour: string
     font-size: 20px;
     background-color: ${props => props.backgroundColour};
     color: ${props => props.textColour};
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const labelMap = {
