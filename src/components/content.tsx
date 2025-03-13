@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Page } from '../enums';
 import About from '../pages/about';
 import Projects from '../pages/projects';
+import Activity from '../pages/activity';
 
 interface ContentProps {
     page: Page;
@@ -26,6 +27,12 @@ const Content = (props: ContentProps) => {
             return (
                 <Container>
                     <Projects />
+                </Container>
+            )
+        case Page.Activity:
+            return (
+                <Container>
+                    <Activity />
                 </Container>
             )
     }

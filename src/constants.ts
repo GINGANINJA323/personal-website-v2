@@ -8,6 +8,10 @@ export const navOptions = [
     {
         label: 'Projects',
         value: Page.Projects
+    },
+    {
+        label: 'Activity',
+        value: Page.Activity
     }
 ];
 
@@ -19,5 +23,11 @@ export const colours = {
     dark: {
         backgroundColour: '#222',
         textColour: '#DDD'
+    }
+}
+
+export const GithubEventMap = {
+    PushEvent: {
+        verb: 'pushed'
     }
 }
