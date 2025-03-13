@@ -98,7 +98,7 @@ const Activity = () => {
                         <LinedBlock underlineColour={textColour}>
                             <h2>{a.type}</h2>
                             <p>Author: <ProfilePic src={a.actor.pic}></ProfilePic><StyledLink underline textColour={colours[theme].textColour} href={`https://github.com/GINGANINJA323`}>{a.actor.name}</StyledLink></p>
-                            <p>Repo: <StyledLink textColour={colours[theme].textColour} underline href={`https://github.com/GINGANINJA323/${a.repo.name}`}>{a.repo.name}</StyledLink></p>
+                            <p>Repo: <StyledLink textColour={colours[theme].textColour} underline href={`https://github.com/${a.repo.name}`}>{a.repo.name}</StyledLink></p>
                             <p>{`Summary: ${getSummaryForPayload(a)}`}</p>
                         </LinedBlock>
                     )) : null
