@@ -11,7 +11,7 @@ interface NavButtonProps {
 }
 
 const breakpoints = {
-    xs: '40',
+    xs: '100',
     s: '20',
     m: '15',
     l: '12'
