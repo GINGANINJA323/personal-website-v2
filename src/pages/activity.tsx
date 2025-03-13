@@ -13,7 +13,7 @@ const Activity = () => {
     const getSummaryForPayload = (event: FormattedGithubEvent) => {
         switch(event.type) {
             case GithubEventType.Create:
-                return `${event.actor.name} created a ${event.payload.type}, ${event.payload.name || ''}.`;
+                return `${event.actor.name} created a ${event.payload.type}, ${event.payload.name || event.repo.name}.`;
             case GithubEventType.Pull:
                 return `${event.actor.name} ${event.payload.action} a PR, "${event.payload.title}".`;
             case GithubEventType.Push:
