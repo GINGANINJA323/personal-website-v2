@@ -1,18 +1,10 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import text from '../en';
 import StyleContext from '../context/style-context';
 import { colours } from '../constants';
+import { LinedBlock, StyledLink } from '../styled';
 
-const ProjectBlock = styled.div<{ underlineColour: string }>`
-    width: 100%;
-    border-bottom: 1px solid ${props => props.underlineColour};
-`;
 
-const StyledLink = styled.a<{textColour: string}>`
-    text-decoration: none;
-    color: ${props => props.textColour};
-`;
 
 const Projects = () => {
     const { projects } = text;
@@ -23,7 +15,7 @@ const Projects = () => {
         <>
             {
                 projects.map(p => (
-                    <ProjectBlock underlineColour={textColour}>
+                    <LinedBlock underlineColour={textColour}>
                         <h2>{p.title}</h2>
                         <p>{p.body}</p>
                         <StyledLink
@@ -33,7 +25,7 @@ const Projects = () => {
                             rel='noopener noreferrer'>
                                 Link to the repository
                             </StyledLink>
-                    </ProjectBlock>
+                    </LinedBlock>
                 ))
             }
         </>
