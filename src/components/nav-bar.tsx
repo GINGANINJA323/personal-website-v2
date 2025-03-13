@@ -36,8 +36,12 @@ const NavButton = styled.button<NavButtonProps>`
     border: none;
     background-color: ${props => props.backgroundColour};
     color: ${props => props.textColour};
-    ${props => props.selected ? 'text-decoration: underline;' : ''}
+    text-decoration: ${props => props.selected ? 'underline' : 'none'};
     font-size: 20px;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const Navbar = () => {
