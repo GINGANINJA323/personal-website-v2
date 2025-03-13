@@ -2,7 +2,8 @@ import * as React from 'react';
 import text from '../en';
 import StyleContext from '../context/style-context';
 import { colours } from '../constants';
-import { LinedBlock, StyledLink } from '../styled';
+import { LinedBlock } from '../styled';
+import Link from '../components/link';
 
 
 
@@ -18,13 +19,12 @@ const Projects = () => {
                     <LinedBlock underlineColour={textColour}>
                         <h2>{p.title}</h2>
                         <p>{p.body}</p>
-                        <StyledLink
+                        <Link
                             textColour={textColour}
                             href={p.link} 
-                            target='_blank'
-                            rel='noopener noreferrer'>
+                        >
                                 Link to the repository
-                            </StyledLink>
+                            </Link>
                     </LinedBlock>
                 ))
             }
