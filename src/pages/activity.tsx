@@ -7,7 +7,7 @@ import StyleContext from '../context/style-context';
 import { colours } from '../constants';
 
 const ProfilePic = styled.img`
-    width: 1%;
+    width: ${window.innerWidth < 500 ? '3%' : '1%'};
     border-radius: 10px;
     margin-right: 3px;
 `;
