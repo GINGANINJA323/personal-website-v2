@@ -83,8 +83,6 @@ const Activity = () => {
         fetchGithubActivity();
     }, []);
 
-    console.log('Github events:', activity);
-
     return (
         <>
             {
