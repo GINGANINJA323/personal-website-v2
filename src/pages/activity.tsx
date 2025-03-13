@@ -1,8 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import Link from '../components/link';
 import { FormattedGithubEvent, RawGithubEvent, StringIndexable } from '../types';
 import { GithubEventType } from '../enums';
-import { LinedBlock, StyledLink } from '../styled';
+import { LinedBlock } from '../styled';
 import StyleContext from '../context/style-context';
 import { colours } from '../constants';
 
@@ -97,8 +98,8 @@ const Activity = () => {
                     activity.map(a => (
                         <LinedBlock underlineColour={textColour}>
                             <h2>{a.type}</h2>
-                            <p>Author: <ProfilePic src={a.actor.pic}></ProfilePic><StyledLink underline textColour={colours[theme].textColour} href={`https://github.com/GINGANINJA323`}>{a.actor.name}</StyledLink></p>
-                            <p>Repo: <StyledLink textColour={colours[theme].textColour} underline href={`https://github.com/${a.repo.name}`}>{a.repo.name}</StyledLink></p>
+                            <p>Author: <ProfilePic src={a.actor.pic}></ProfilePic><Link underline textColour={colours[theme].textColour} href={`https://github.com/GINGANINJA323`}>{a.actor.name}</Link></p>
+                            <p>Repo: <Link textColour={colours[theme].textColour} underline href={`https://github.com/${a.repo.name}`}>{a.repo.name}</Link></p>
                             <p>{`Summary: ${getSummaryForPayload(a)}`}</p>
                         </LinedBlock>
                     )) : null
