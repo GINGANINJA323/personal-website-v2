@@ -15,6 +15,7 @@ const ProfilePic = styled.img`
 
 const Activity = () => {
     const [activity, setActivity] = React.useState<FormattedGithubEvent[]>();
+    const [loading, setLoading] = React.useState(false);
     const { theme } = React.useContext(StyleContext);
     const { textColour } = colours[theme];
 
@@ -60,6 +61,7 @@ const Activity = () => {
     }
 
     const fetchGithubActivity = async() => {
+        setLoading(true);
         const response = await fetch('https://api.github.com/users/GINGANINJA323/events');
 
         if (!response.ok) return null;
@@ -85,6 +87,7 @@ const Activity = () => {
         });
 
         setActivity(formatted);
+        setLoading(false);
     }
 
     React.useEffect(() => {
@@ -94,7 +97,9 @@ const Activity = () => {
     return (
         <>
             {
-                activity ?
+                loading ?
+                    <h3>Fetching GitHub Activity, hang on...</h3> :
+                    activity && activity.length ?
                     activity.map(a => (
                         <LinedBlock underlineColour={textColour}>
                             <h2>{a.type}</h2>
@@ -102,7 +107,7 @@ const Activity = () => {
                             <p>Repo: <Link textColour={colours[theme].textColour} underline href={`https://github.com/${a.repo.name}`}>{a.repo.name}</Link></p>
                             <p>{`Summary: ${getSummaryForPayload(a)}`}</p>
                         </LinedBlock>
-                    )) : null
+                    )) : <h3>No activity at the moment, check back later!</h3>
             }
         </>
     );
